@@ -4,7 +4,8 @@ import heroVideo from "../assets/hero-video.webm"
 const HeroSection = () => {
   return (
     <section
-        className="relative w-full h-screen overflow-hidden"
+        className="relative w-full min-h-screen overflow-hidden"
+        id="hero"
     >
         <video
             className="absolute inset-0 w-full h-full object-cover"

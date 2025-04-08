@@ -1,5 +1,5 @@
-import { useState, useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { useState } from "react"
+import { motion } from "framer-motion"
 import { photos } from "../constants"
 import Lightbox from "./Lightbox"
 
@@ -11,8 +11,6 @@ const PortfolioGrid = () => {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [activeTag, setActiveTag] = useState<string>("All")
 
-    const ref = useRef(null)
-    const inView = useInView(ref, { once: true })
 
     const filteredPhotos = 
         activeTag === "All"
@@ -39,20 +37,40 @@ const PortfolioGrid = () => {
 
   return (
     <section 
-        className="px-4 py-12 bg-color-darkCyan text-white"
-        ref={ref}
+        className="min-h-screen px-6 py-28 bg-color-darkCyan text-white"
+        id="portfolio"
     >
         <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ staggerChildren: 0.2 }}
             className="text-center mb-8"
         >
-            <h2 className="text-3xl font-bold">Portfolio</h2>
-            <p className="text-gray-400 mt-2">Explore my favorite captures</p>
+            <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}  
+                className="text-3xl font-bold"
+            >
+                Portfolio
+            </motion.h2>
+            <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}            
+                className="text-gray-400 mt-2 text-lg"
+            >
+                Explore my favorite captures
+            </motion.p>
         </motion.div>
 
-        <div className="flex justify-center mb-6 gap-3 flex-wrap">
+        <motion.div 
+            className="flex justify-center mb-6 gap-3 flex-wrap"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}       
+        >
             {["All", ...tags].map(tag => (
                 <button
                     key={tag}
@@ -66,13 +84,13 @@ const PortfolioGrid = () => {
                     {tag}
                 </button>
             ))}
-        </div>
+        </motion.div>
 
         <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}    
         >
                 {filteredPhotos.map((photo, index) => (
                     <motion.div
@@ -81,7 +99,7 @@ const PortfolioGrid = () => {
                         onClick={() => openLightbox(index)}
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.05 }}
+                        transition={{ delay: index * 0.2 }}
                     >
                         <img 
                             src={photo.src}
