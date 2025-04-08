@@ -11,10 +11,15 @@ export default {
         cormorant: "var(--font-cormorant)",
       },
       colors: {
-        color: {
+        darkModeColors: {
           darkCyan: "#111418",
+          white: "#ffffff",
+        },
+        lightModeColors: {
+          whiteSmoke: "#f4f4f4",
+          chineseBlack: "#111111",
         }
-      }
+      },
     },
   },
   plugins: [],

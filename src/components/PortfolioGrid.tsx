@@ -36,8 +36,8 @@ const PortfolioGrid = () => {
     }
 
   return (
-    <section 
-        className="min-h-screen px-6 py-28 bg-color-darkCyan text-white"
+    <main 
+        className="min-h-screen px-6 py-28"
         id="portfolio"
     >
         <motion.div
@@ -117,7 +117,7 @@ const PortfolioGrid = () => {
             onPrev={prev}
             onNext={next}
         />
-    </section>
+    </main>
   )
 }
 
