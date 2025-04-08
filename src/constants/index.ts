@@ -5,19 +5,19 @@ import fourthImage from "../assets/image-4.webp"
 
 export const photos = [
     {
-      id: 1,
-      src: firstImage,
-      title: "Through the Camera Lens",
-      exif: { camera: "Canon R6", lens: "50mm f/1.2", iso: 400 },
-      tags: ["Nature"],
-      description: "Shot while sunrise in Central Park, New York.",
+        id: 1,
+        src: firstImage,
+        title: "Through the Camera Lens",
+        exif: { camera: "Canon R6", lens: "50mm f/1.2", iso: 400 },
+        tags: ["Nature", "Forest"],
+        description: "Shot while sunrise in Central Park, New York.",
     },
     {
         id: 2,
         src: secondImage,
         title: "Travel Memories",
         exif: { camera: "Canon R6", lens: "50mm f/1.2", iso: 400 },
-        tags: ["BW"],
+        tags: ["BW", "Minimal"],
         description: "Vintage Camera and Polaroids on Antique World Map - A Photographer's Journey",
     },
     {
@@ -25,7 +25,7 @@ export const photos = [
         src: thirdImage,
         title: "Analog Meets Modern",
         exif: { camera: "Canon R6", lens: "50mm f/1.2", iso: 400 },
-        tags: ["BW"],
+        tags: ["BW", "Minimal"],
         description: "Vintage Camera - Shot using natural light",
     },
     {
@@ -33,7 +33,7 @@ export const photos = [
         src: fourthImage,
         title: "Capturing Another Professional",
         exif: { camera: "Canon R6", lens: "50mm f/1.2", iso: 400 },
-        tags: ["Portrait"],
+        tags: ["Portrait", "Nature"],
         description: "Shot during sunset in Arizona",
     },
     // Add more photo objects...

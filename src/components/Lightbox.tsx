@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion"
-import { Fragment } from "react/jsx-runtime"
+import { Fragment, useEffect } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import { useState } from "react"
 
@@ -18,6 +18,24 @@ const Lightbox: React.FC<LightboxProps> = ({ isOpen, photo, onClose, onPrev, onN
     }
 
     const [hovered, setHovered] = useState<boolean>(false)
+
+    useEffect(() => {
+        const handleKeyDown = (e: globalThis.KeyboardEvent) => {
+            if (!isOpen) return
+            if (e.key === "ArrowLeft") {
+                onPrev()
+            }
+            if (e.key === "ArrowRight") {
+                onNext()
+            }
+            if (e.key === "Escape") {
+                onClose()
+            }
+        }
+        
+        window.addEventListener("keydown", handleKeyDown)
+        return () => window.removeEventListener("keydown", handleKeyDown)
+    },[isOpen])
 
   return (
     <Transition

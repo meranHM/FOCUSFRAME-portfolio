@@ -9,6 +9,11 @@ export default {
     extend: {
       fontFamily: {
         cormorant: "var(--font-cormorant)",
+      },
+      colors: {
+        color: {
+          darkCyan: "#111418",
+        }
       }
     },
   },
