@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { services } from "../constants"
-import { X } from "lucide-react"
+import { X} from "lucide-react"
 
 const ServicesSection = () => {
     const [active, setActive] = useState<null | number>(null)
@@ -20,7 +20,7 @@ const ServicesSection = () => {
         </motion.h2>
 
         <div
-            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-4"
         >
             {services.map((service, index) => (
                 <motion.div
@@ -34,24 +34,29 @@ const ServicesSection = () => {
                     <div
                         className="flex justify-between items-center mb-4"
                     >
-                        <h3
-                            className="text-xl font-semibold text-white group-hover:text-cyan-300"
+                        <div
+                            className="flex items-center gap-2"
                         >
-                            {service.title}
-                        </h3>
+                            {service.icon && <service.icon className="w-6 h-6 text-cyan-300"/>}
+                            <h3
+                                className="text-xl md:text-2xl font-semibold text-white group-hover:text-cyan-300"
+                            >
+                                {service.title}
+                            </h3>
+                        </div>
                         <span
-                            className="text-cyan-300 font-bold text-lg bg-cyan-900/30 px-3 py-1 rounded-full"
+                            className="text-cyan-300 font-bold text-lg md:text-xl bg-cyan-900/30 px-3 py-1 md:px-4 md:py-2 rounded-full"
                         >
                             {service.price}
                         </span>
                     </div>
                     <p
-                        className="text-sm text-gray-300"
+                        className="text-sm font-bold md:text-lg text-gray-300"
                     >
                         {service.description}
                     </p>
                     <div
-                        className="absolute top-4 right-4 w-3 h-3 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition duration-300 shadow-lg" />
+                        className="absolute top-2 right-2 w-3 h-3 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition duration-300 shadow-lg" />
                 </motion.div>
             ))}
         </div>
@@ -62,9 +67,11 @@ const ServicesSection = () => {
                 onClick={() => setActive(null)}
             >
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0}}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.3 }}
+                    onClick={(e) => e.stopPropagation()}
                     className="bg-darkModeColors-gray10 text-white rounded-xl p-8 max-w-md w-full shadow-xl relative"
                 >
                     <h3
@@ -73,15 +80,21 @@ const ServicesSection = () => {
                         {services[active].title}
                     </h3>
                     <p
-                        className="text-sm text-cyan-300 mb-4"
+                        className="text-base md:text-xl tracking-wide text-cyan-300 mb-4"
                     >
                         {services[active].price}
                     </p>
                     <p
-                        className="text-gray-300"
+                        className="text-gray-200 md:text-lg tracking"
                     >
                         {services[active].details}
                     </p>
+
+                    <button
+                        className="bg-cyan-600 text-white px-5 py-2 rounded-lg hover:bg-cyan-700 transition mt-4"
+                    >
+                        Book Now
+                    </button>
 
                     <button
                         className="absolute top-3 right-4 text-gray-400 hover:text-white text-xl"

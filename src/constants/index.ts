@@ -2,6 +2,12 @@ import firstImage from "../assets/image-1.webp"
 import secondImage from "../assets/image-2.webp"
 import thirdImage from "../assets/image-3.webp"
 import fourthImage from "../assets/image-4.webp"
+import { 
+    CameraIcon,
+    UserCircle,
+    PackageSearch,
+} from "lucide-react"
+
 
 export const photos = [
     {
@@ -46,7 +52,7 @@ export const timeline = [
       { year: "2019", text: "Started traveling for freelance gigs" },
       { year: "2023", text: "Launched this online portfolio" },
     ]
-    
+
 
 export const services = [
     {
@@ -54,17 +60,20 @@ export const services = [
         price: "$400+",
         description: "4 hours coverage • Edited high-res shots • Online gallery",
         details: "Up to 100 edited images. Travel included within city limits. Extra hours: $100/hour.",
+        icon: CameraIcon
     },
     {
         title: "Portrait Session",
         price: "$200+",
         description: "1.5 hours • Outdoor or Studio • 15 retouched shots",
         details: "Includes wardrobe guidance. Studio cost not included. Extra edits: $10/image.",
+        icon: UserCircle
     },
     {
         title: "Product Photography",
         price: "$250+",
         description: "20 product shots • Clean background • Lighting setup",
         details: "Perfect for ecommerce. Includes transparent background options and web optimization.",
+        icon: PackageSearch
     }
     ]

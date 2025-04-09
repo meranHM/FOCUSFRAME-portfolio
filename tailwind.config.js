@@ -9,6 +9,7 @@ export default {
     extend: {
       fontFamily: {
         cormorant: "var(--font-cormorant)",
+        playFair: "var(--font-playfair)"
       },
       colors: {
         darkModeColors: {
