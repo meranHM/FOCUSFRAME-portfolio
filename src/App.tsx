@@ -5,6 +5,7 @@ import AboutSection from "./components/AboutSection"
 import { useState } from "react"
 import ServicesSection from "./components/ServicesSection"
 import TestimonialsSection from "./components/TestimonialsSection"
+import ContactSection from "./components/ContactSection"
 
 
 
@@ -31,6 +32,7 @@ const App = () => {
       <AboutSection />
       <ServicesSection />
       <TestimonialsSection />
+      <ContactSection />
     </div>
   )
 }

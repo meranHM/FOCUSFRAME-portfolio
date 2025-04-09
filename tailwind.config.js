@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 
+import { Scale } from 'lucide-react';
+import { transform } from 'typescript';
+
 export default {
   content: [
     "./index.html",
@@ -23,6 +26,15 @@ export default {
           chineseBlack: "#111111",
         }
       },
+      animation: {
+        stamp: "stamp 0.6s ease-out forwards" 
+      },
+      keyframes: {
+        stamp: {
+          "0%": { transform: "scale(2) rotate(-45deg)", opacity: "0" },
+          "100%": { transform: "scale(1) rotate(0deg)", opacity: "1" },
+        }
+      }
     },
   },
   plugins: [
