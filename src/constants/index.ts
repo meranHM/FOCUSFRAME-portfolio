@@ -38,3 +38,11 @@ export const photos = [
     },
     // Add more photo objects...
   ];
+
+
+  export const timeline = [
+      { year: "2012", text: "Took my first photo with a Nikon D3100" },
+      { year: "2016", text: "First solo exhibition — 'Shadows of Light'" },
+      { year: "2019", text: "Started traveling for freelance gigs" },
+      { year: "2023", text: "Launched this online portfolio" },
+    ]

@@ -1,7 +1,7 @@
-import Contact from "./components/Contact"
 import Header from "./components/Header"
 import HeroSection from "./components/HeroSection"
 import PortfolioGrid from "./components/PortfolioGrid"
+import AboutSection from "./components/AboutSection"
 import { useState } from "react"
 
 
@@ -26,7 +26,7 @@ const App = () => {
       />
       <HeroSection />
       <PortfolioGrid />
-      <Contact />
+      <AboutSection />
     </div>
   )
 }

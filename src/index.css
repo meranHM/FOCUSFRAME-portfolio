@@ -5,12 +5,20 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
     --font-cormorant: "Cormorant Garamond", serif;
 }
 
 * {
     scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+    @apply relative
 }
 
 @layer base {
