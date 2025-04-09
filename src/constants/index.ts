@@ -2,6 +2,7 @@ import firstImage from "../assets/image-1.webp"
 import secondImage from "../assets/image-2.webp"
 import thirdImage from "../assets/image-3.webp"
 import fourthImage from "../assets/image-4.webp"
+import avatar from "../assets/avatar.png"
 import { 
     CameraIcon,
     UserCircle,
@@ -9,6 +10,7 @@ import {
 } from "lucide-react"
 
 
+// Captured Photos
 export const photos = [
     {
         id: 1,
@@ -46,6 +48,7 @@ export const photos = [
   ];
 
 
+// Career Timeline  
 export const timeline = [
       { year: "2012", text: "Took my first photo with a Nikon D3100" },
       { year: "2016", text: "First solo exhibition — 'Shadows of Light'" },
@@ -54,6 +57,8 @@ export const timeline = [
     ]
 
 
+
+// Services and Pricing    
 export const services = [
     {
         title: "Event Shoot",
@@ -76,4 +81,25 @@ export const services = [
         details: "Perfect for ecommerce. Includes transparent background options and web optimization.",
         icon: PackageSearch
     }
-    ]
+]
+
+
+// Testimonials
+export const testimonials = [
+    {
+      name: "Emily R.",
+      quote: "Working with Alex was pure magic. He captured every moment so perfectly — like he read my mind.",
+      avatar: avatar,
+    },
+    {
+      name: "Marcus L.",
+      quote: "Best photo experience I've ever had. Professional, fast, and the shots? Chef's kiss.",
+      avatar: avatar,
+    },
+    {
+      name: "Sophie K.",
+      quote: "I usually hate being photographed… but Alex made me feel so comfortable and confident. Love the results!",
+      avatar: avatar,
+    },
+    // Add more as needed
+  ]

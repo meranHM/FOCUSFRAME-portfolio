@@ -4,6 +4,7 @@ import PortfolioGrid from "./components/PortfolioGridSection"
 import AboutSection from "./components/AboutSection"
 import { useState } from "react"
 import ServicesSection from "./components/ServicesSection"
+import TestimonialsSection from "./components/TestimonialsSection"
 
 
 
@@ -29,6 +30,7 @@ const App = () => {
       <PortfolioGrid />
       <AboutSection />
       <ServicesSection />
+      <TestimonialsSection />
     </div>
   )
 }

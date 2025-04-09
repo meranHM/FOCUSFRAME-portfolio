@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import { fontFamily } from "tailwindcss/defaultTheme"
+
 export default {
   content: [
     "./index.html",
@@ -16,6 +16,7 @@ export default {
           darkCyan: "#111418",
           white: "#ffffff",
           gray10: "#1a1a1a",
+          ivory: "#0f0f0f",
         },
         lightModeColors: {
           whiteSmoke: "#f4f4f4",
@@ -24,5 +25,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
