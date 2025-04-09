@@ -14,6 +14,7 @@ export default {
         darkModeColors: {
           darkCyan: "#111418",
           white: "#ffffff",
+          gray10: "#1a1a1a",
         },
         lightModeColors: {
           whiteSmoke: "#f4f4f4",

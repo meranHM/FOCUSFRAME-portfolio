@@ -1,8 +1,9 @@
 import Header from "./components/Header"
 import HeroSection from "./components/HeroSection"
-import PortfolioGrid from "./components/PortfolioGrid"
+import PortfolioGrid from "./components/PortfolioGridSection"
 import AboutSection from "./components/AboutSection"
 import { useState } from "react"
+import ServicesSection from "./components/ServicesSection"
 
 
 
@@ -27,6 +28,7 @@ const App = () => {
       <HeroSection />
       <PortfolioGrid />
       <AboutSection />
+      <ServicesSection />
     </div>
   )
 }
