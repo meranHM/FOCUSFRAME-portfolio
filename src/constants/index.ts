@@ -87,19 +87,24 @@ export const services = [
 // Testimonials
 export const testimonials = [
     {
-      name: "Emily R.",
-      quote: "Working with Alex was pure magic. He captured every moment so perfectly — like he read my mind.",
-      avatar: avatar,
+        name: "Emily R.",
+        quote: "Working with Alex was pure magic. He captured every moment so perfectly — like he read my mind.",
+        avatar: avatar,
     },
     {
-      name: "Marcus L.",
-      quote: "Best photo experience I've ever had. Professional, fast, and the shots? Chef's kiss.",
-      avatar: avatar,
+        name: "Marcus L.",
+        quote: "Best photo experience I've ever had. Professional, fast, and the shots? Chef's kiss.",
+        avatar: avatar,
     },
     {
-      name: "Sophie K.",
-      quote: "I usually hate being photographed… but Alex made me feel so comfortable and confident. Love the results!",
-      avatar: avatar,
+        name: "Sophie K.",
+        quote: "I usually hate being photographed… but Alex made me feel so comfortable and confident. Love the results!",
+        avatar: avatar,
+    },
+    {
+        name: "Ethan J.",
+        quote: "From first contact to final delivery - everything was seamless and beautiful.",
+        avatar: avatar,
     },
     // Add more as needed
   ]

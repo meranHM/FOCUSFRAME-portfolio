@@ -7,6 +7,7 @@ import { testimonials } from "../constants"
 const TestimonialsSection = () => {
     const scrollRef = useRef<HTMLDivElement>(null)
 
+
     const scroll = (dir: "left" | "right") => {
         if (!scrollRef.current) {
             return
@@ -19,6 +20,7 @@ const TestimonialsSection = () => {
   return (
     <section
         className="py-24 px-6 lg:px-20 bg-darkModeColors-ivory text-white"
+        id="testimonials"
     >
         <motion.h2
             initial={{ opacity: 0, y: 30}}
