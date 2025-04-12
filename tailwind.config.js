@@ -1,9 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 
-import { Scale } from 'lucide-react';
-import { transform } from 'typescript';
 
 export default {
+  darkMode: "class",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
