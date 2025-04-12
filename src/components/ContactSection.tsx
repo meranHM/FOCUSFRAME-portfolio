@@ -1,9 +1,14 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
+
+
 
 const ContactSection = () => {
     const [form, setForm] = useState<{name: string, email: string, message: string}>({ name: "", email: "", message: "" })
     const [submitted, setSubmitted] = useState<boolean>(false)
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -94,6 +99,28 @@ const ContactSection = () => {
                 >
                     Message
                 </label>
+            </div>
+
+            <div
+                className="relative"
+            >
+                <label
+                    className="block text-sm text-gray-400 mb-2  mt-10"
+                >
+                    Preferred Shoot Date
+                </label>
+                    <DatePicker 
+                        selected={selectedDate}
+                        onChange={(date) => setSelectedDate(date)}
+                        showTimeSelect
+                        timeFormat="HH:mm"
+                        timeIntervals={30}
+                        timeCaption="Time"
+                        dateFormat="MMMM d, yyyy h:mm aa"
+                        placeholderText="Select a date and time"
+                        className="w-full bg-transparent border-b border-gray-400 py-2 focus:outline-none focus:border-cyan-400 text-white placeholder-gray-400"
+                        wrapperClassName="w-full"
+                    />
             </div>
 
             <motion.button

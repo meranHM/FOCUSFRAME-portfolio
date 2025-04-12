@@ -7,6 +7,23 @@
 @tailwind utilities;
 
 
+:root .react-datepicker {
+    background-color: #111827;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 8px;
+  }
+:root .react-datepicker__header {
+    background-color: #1e293b;
+    border-bottom: 1px solid #334155;
+    color: white;
+  }
+:root .react-datepicker__day--selected,
+:root .react-datepicker__day--keyboard-selected {
+    background-color: #06b6d4;
+    color: white;
+  }
+
 
 :root {
     --font-cormorant: "Cormorant Garamond", serif;
@@ -28,3 +45,5 @@ body,
         @apply font-cormorant
     }
 }
+
+
