@@ -116,7 +116,7 @@ export const testimonials = [
 
   // Footer Icons
   export const footerIcons = [
-    {icon: FaInstagram, link: "#"},
-    {icon: FaLinkedin, link: "#"},
-    {icon: FaEnvelope, link: "#"},
+    {icon: FaInstagram, link: "https://instagram.com"},
+    {icon: FaLinkedin, link: "https://linkedin.com"},
+    {icon: FaEnvelope, link: "mailto:you@example.com"},
   ]
