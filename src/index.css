@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-
 
 @tailwind base;
 @tailwind components;
@@ -39,6 +37,7 @@ body,
 #root {
     @apply relative
 }
+
 
 @layer base {
     body {

@@ -9,6 +9,11 @@ import {
     PackageSearch,
 } from "lucide-react"
 
+import { 
+    FaLinkedin, 
+    FaInstagram, 
+    FaEnvelope } from "react-icons/fa"
+
 
 // Captured Photos
 export const photos = [
@@ -107,4 +112,11 @@ export const testimonials = [
         avatar: avatar,
     },
     // Add more as needed
+  ]
+
+  // Footer Icons
+  export const footerIcons = [
+    {icon: FaInstagram, link: "#"},
+    {icon: FaLinkedin, link: "#"},
+    {icon: FaEnvelope, link: "#"},
   ]

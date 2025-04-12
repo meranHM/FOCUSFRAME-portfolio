@@ -5,15 +5,17 @@ import AboutSection from "./components/AboutSection"
 import ServicesSection from "./components/ServicesSection"
 import TestimonialsSection from "./components/TestimonialsSection"
 import ContactSection from "./components/ContactSection"
+import Footer from "./components/Footer"
 import { ThemeProvider } from "./context/ThemeContext"
 
 
-
 const App = () => {
+
   return (
     <ThemeProvider>
       <div
         className="transition-colors duration-300 bg-white text-black dark:bg-black dark:text-white"
+        id="theme-container"
       >
         <Header />
         <HeroSection />
@@ -22,6 +24,7 @@ const App = () => {
         <ServicesSection />
         <TestimonialsSection />
         <ContactSection />
+        <Footer />
       </div>
     </ThemeProvider>
   )
