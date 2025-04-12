@@ -40,7 +40,7 @@ const ContactSection = () => {
 
         <form
             onSubmit={handleSubmit}
-            className="max-w-2xl mx-auto space-y-8 bg-white/5 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-white/10"
+            className="max-w-2xl mx-auto space-y-8 bg-black/5 dark:bg-white/5 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-black/10 dark:border-white/10"
         >
             <div
                 className="relative"
@@ -50,12 +50,12 @@ const ContactSection = () => {
                     value={form.name}
                     onChange={handleChange}
                     required
-                    className="peer w-full bg-transparent border-b border-gray-400 py-2 px-2 focus:outline-none focus:border-cyan-400 text-white placeholder-transparent"
+                    className="peer w-full bg-transparent border-b border-gray-900 dark:border-gray-400 py-2 px-2 focus:outline-none focus:border-cyan-400 placeholder-transparent"
                     placeholder="Name"
                 />
                 <label
                     htmlFor="name"
-                    className="absolute left-0 top-2 text-gray-400/5 text-sm peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-4 peer-focus:text-sm peer-focus:text-cyan-400 transition-all"
+                    className="absolute left-0 top-2 text-gray-900/10 text-sm peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-xl peer-placeholder-shown:text-gray-900 dark:peer-placeholder-shown:text-gray-500 peer-focus:-top-4 peer-focus:text-lg peer-focus:text-cyan-700 peer-focus:font-bold dark:peer-focus:text-cyan-400 transition-all"
                 >
                     Name
                 </label>
@@ -70,12 +70,12 @@ const ContactSection = () => {
                     value={form.email}
                     onChange={handleChange}
                     required
-                    className="peer w-full bg-transparent border-b border-gray-400 py-2 px-2 focus:outline-none focus:border-cyan-400 text-white placeholder-transparent"
+                    className="peer w-full bg-transparent border-b border-gray-900 dark:border-gray-400 py-2 px-2 focus:outline-none focus:border-cyan-400 placeholder-transparent"
                     placeholder="Email"
                 />
                 <label 
                     htmlFor="email"
-                    className="absolute left-0 top-2 text-gray-400/5 text-sm peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-4 peer-focus:text-sm peer-focus:text-cyan-400 transition-all"
+                    className="absolute left-0 top-2 text-gray-900/10 text-sm peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-xl peer-placeholder-shown:text-gray-900 dark:peer-placeholder-shown:text-gray-500 peer-focus:-top-4 peer-focus:text-lg peer-focus:text-cyan-700 peer-focus:font-bold dark:peer-focus:text-cyan-400 transition-all"
                 >
                     Email
                 </label>
@@ -90,12 +90,12 @@ const ContactSection = () => {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="peer w-full bg-transparent border-b border-gray-400 py-2 px-2 focus:outline-none focus:border-cyan-400 text-white placeholder-transparent resize-none"
+                    className="peer w-full bg-transparent border-b border-gray-900 dark:border-gray-400 py-2 px-2 focus:outline-none focus:border-cyan-400 placeholder-transparent resize-none"
                     placeholder="Your Message"
                 />
                 <label 
                     htmlFor="message"
-                    className="absolute left-0 top-2 text-gray-400/5 text-sm peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-4 peer-focus:text-sm peer-focus:text-cyan-400 transition-all"
+                    className="absolute left-0 top-2 text-gray-900/10 text-sm peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-xl peer-placeholder-shown:text-gray-900 dark:peer-placeholder-shown:text-gray-500 peer-focus:-top-4 peer-focus:text-lg peer-focus:text-cyan-700 peer-focus:font-bold dark:peer-focus:text-cyan-400 transition-all"
                 >
                     Message
                 </label>
@@ -105,7 +105,7 @@ const ContactSection = () => {
                 className="relative"
             >
                 <label
-                    className="block text-sm text-gray-400 mb-2  mt-10"
+                    className="block text-xl  text-gray-900 dark:text-gray-300 mb-2  mt-10"
                 >
                     Preferred Shoot Date
                 </label>
@@ -118,7 +118,7 @@ const ContactSection = () => {
                         timeCaption="Time"
                         dateFormat="MMMM d, yyyy h:mm aa"
                         placeholderText="Select a date and time"
-                        className="w-full bg-transparent border-b border-gray-400 py-2 focus:outline-none focus:border-cyan-400 text-white placeholder-gray-400"
+                        className="w-full bg-transparent border-b border-gray-900 dark:border-gray-400 py-2 focus:outline-none focus:border-cyan-400 placeholder-gray-900 dark:placeholder-gray-300"
                         wrapperClassName="w-full"
                     />
             </div>
@@ -148,7 +148,7 @@ const ContactSection = () => {
         </form>
 
         <p
-            className="text-center text-sm text-gray-400 mt-6 italic"
+            className="text-center text-base text-gray-900 dark:text-gray-400 mt-6 italic"
         >
             Available for shoots in: NYC • Toronto • Paris
         </p>

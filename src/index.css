@@ -11,16 +11,24 @@
     border-radius: 8px;
     padding: 8px;
   }
+  
 :root .react-datepicker__header {
     background-color: #1e293b;
     border-bottom: 1px solid #334155;
+}
+
+:root .react-datepicker-time__header,
+:root .react-datepicker__current-month,
+:root .react-datepicker__day-name,
+:root .react-datepicker__day {
     color: white;
-  }
+}
+
 :root .react-datepicker__day--selected,
 :root .react-datepicker__day--keyboard-selected {
     background-color: #06b6d4;
     color: white;
-  }
+}
 
 
 :root {

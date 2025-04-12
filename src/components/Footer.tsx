@@ -28,21 +28,21 @@ const Footer = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.2, delay: index * 0.2 }}
                     >
-                        <item.icon />
+                        <item.icon className="w-5 h-5"/>
                     </motion.a>
                 ))}
             </div>
 
             <button
                 onClick={scrollToTop}
-                className="text-sm text-slate-900 dark:text-slate-400 hover:text-cyan-400 transition"
+                className="text-slate-900 dark:text-slate-400 hover:text-cyan-400 dark:hover:text-cyan-200 transition"
             >
                 Back to Top ↑
             </button>
         </div>
 
         <div
-            className="mt-6 border-t border-slate-700 pt-4 text-center text-sm text-slate-900 dark:text-slate-400"
+            className="mt-6 border-t border-slate-700 pt-4 text-center text-base text-slate-900 dark:text-slate-400"
         >
             &copy; {year} Mehran Shahani. All rights reserved.
         </div>

@@ -29,7 +29,7 @@ const ServicesSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.2 }}
                     onClick={() => setActive(index)}
-                    className="cursor-pointer relative bg-white/10 backdrop-blur-0-md p-6 rounded-2xl shadow-md hover:shadow-lg border border-white/20 hover:border-cyan-400 transition-all duration-300 group"
+                    className="cursor-pointer relative bg-black/10 dark:bg-white/10 backdrop-blur-0-md p-6 rounded-2xl shadow-md hover:shadow-lg border border-black/20 dark:border-white/20 hover:border-cyan-400 transition-all duration-300 group"
                 >
                     <div
                         className="flex justify-between items-center mb-4"
@@ -37,21 +37,21 @@ const ServicesSection = () => {
                         <div
                             className="flex items-center gap-2"
                         >
-                            {service.icon && <service.icon className="w-6 h-6 text-cyan-300"/>}
+                            {service.icon && <service.icon className="w-6 h-6 text-cyan-600 dark:text-cyan-300"/>}
                             <h3
-                                className="text-xl md:text-2xl font-semibold text-white group-hover:text-cyan-300"
+                                className="text-xl md:text-2xl font-semibold text-black dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-300"
                             >
                                 {service.title}
                             </h3>
                         </div>
                         <span
-                            className="text-cyan-300 font-bold text-lg md:text-xl bg-cyan-900/30 px-3 py-1 md:px-4 md:py-2 rounded-full"
+                            className="text-cyan-600 dark:text-cyan-300 font-bold text-lg md:text-xl bg-cyan-900/30 px-3 py-1 md:px-4 md:py-2 rounded-full"
                         >
                             {service.price}
                         </span>
                     </div>
                     <p
-                        className="text-sm font-bold md:text-lg text-gray-300"
+                        className="text-sm font-bold md:text-lg text-gray-900 dark:text-gray-300"
                     >
                         {service.description}
                     </p>

@@ -59,7 +59,7 @@ const PortfolioGrid = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}            
-                className="text-gray-400 mt-2 text-lg"
+                className="text-gray-900 dark:text-gray-400 mt-2 text-lg"
             >
                 Explore my favorite captures
             </motion.p>
@@ -77,8 +77,8 @@ const PortfolioGrid = () => {
                     onClick={() => setActiveTag(tag)}
                     className={`px-4 py-1 rounded-full border ${
                         activeTag === tag
-                        ? "bg-white text-black border-white"
-                        : "border-gray-600 text-gray-300 hover:border-white hover:text-white"
+                        ? "bg-black text-white border-black dark:bg-white dark:text-black dark:border-white"
+                        : "border-gray-600 text-gray-900 dark:text-gray-300 hover:border-black/30 dark:hover:border-white hover:text-black dark:hover:text-white"
                     } transition`}
                 >
                     {tag}
@@ -95,7 +95,7 @@ const PortfolioGrid = () => {
                 {filteredPhotos.map((photo, index) => (
                     <motion.div
                         key={photo.id}
-                        className="cursor-pointer overflow-hidden rounded-xl bg-white/5 backdrop-blur-md border border-white/10 p-1 shadow-lg group hover:scale-[1.015] transition-transform"
+                        className="cursor-pointer overflow-hidden rounded-xl bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/10 p-1 shadow-lg group hover:scale-[1.015] transition-transform"
                         onClick={() => openLightbox(index)}
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ const PortfolioGrid = () => {
                             alt={photo.title}
                             className="w-full h-64 object-cover rounded-lg transition-transform group-hover:scale-105"
                         />
-                        <div className="mt-2 text-lg text-center text-gray-300">{photo.title}</div>
+                        <div className="mt-2 text-lg text-center text-gray-900 dark:text-gray-300">{photo.title}</div>
                     </motion.div>
                 ))}
         </motion.div>

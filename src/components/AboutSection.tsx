@@ -16,7 +16,7 @@ const AboutSection = () => {
             className="relative z-10 lg:w-1/2 w-full flex justify-center items-center mb-12 lg:mb-0"
         >
             <div
-                className="bg-white p-4 rounded-lg shadow-lg max-w-xs rotate-[-3deg]"
+                className="p-4 rounded-lg shadow-lg max-w-xs rotate-[-3deg]"
             >
                 <img 
                     src={PolaroidImg}
@@ -54,7 +54,7 @@ const AboutSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg md:text-xl text-gray-300"            
+                className="text-lg md:text-xl text-gray-900 dark:text-gray-300"            
             >
                 Started with a Nikon at 14. Fell in love with chasing light. Each photo I take is a
                 fragment of a bigger story — <span className="text-nowrap">mine, yours, ours.</span>
@@ -74,8 +74,8 @@ const AboutSection = () => {
                         <span
                             className="absolute -left-6 top-1 w-3 h-3 rounded-full bg-cyan-400"
                         />
-                        <p className="text-base font-bold text-gray-400">{item.year}</p>
-                        <p className="text-base md:text-lg text-white">{item.text}</p>
+                        <p className="text-base font-bold text-gray-800 dark:text-gray-400">{item.year}</p>
+                        <p className="text-base md:text-lg text-black dark:text-white">{item.text}</p>
 
                     </motion.div>
                 ))}

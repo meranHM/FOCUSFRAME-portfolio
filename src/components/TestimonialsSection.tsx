@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
                         className="min-w-full px-4"
                     >
                         <div
-                            className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg max-w-xl mx-auto relative border border-white/20"
+                            className="bg-black/10 dark:bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg max-w-xl mx-auto relative border border-black/20 dark:border-white/20"
                         >
                             <div
                                 className="flex items-center mb-4"
@@ -59,16 +59,16 @@ const TestimonialsSection = () => {
                                 <img 
                                     src={test.avatar} 
                                     alt={test.name}
-                                    className="w-10 h-10 rounded-full object-cover mr-4 border border-white"
+                                    className="w-10 h-10 rounded-full object-cover mr-4 border border-black dark:border-white"
                                 />
                                 <p 
-                                    className="test-sm text-white font-semibold"
+                                    className="text-base font-bold"
                                 >
                                     {test.name}
                                 </p>
                             </div>
                             <p
-                                className="text-white text-base leading-relaxed"
+                                className="text-base font-semibold leading-relaxed"
                             >
                                 “{test.quote}”
                             </p>
@@ -78,7 +78,7 @@ const TestimonialsSection = () => {
             </div>
 
             <div
-                className="flex justify-center gap-2 mt-6 sm:hidden"
+                className="flex justify-center gap-2 mt-6"
             >
                 {testimonials.map((_, index) => (
                     <div
