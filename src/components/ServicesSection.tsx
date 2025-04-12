@@ -8,7 +8,8 @@ const ServicesSection = () => {
 
   return (
     <section
-        className="py-24 px-6 lg:px-20 relative z-10"
+        className="py-24 px-6 mb-10 lg:px-20 relative z-10"
+        id="services"
     >
         <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -29,7 +30,7 @@ const ServicesSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.2 }}
                     onClick={() => setActive(index)}
-                    className="cursor-pointer relative bg-black/10 dark:bg-white/10 backdrop-blur-0-md p-6 rounded-2xl shadow-md hover:shadow-lg border border-black/20 dark:border-white/20 hover:border-cyan-400 transition-all duration-300 group"
+                    className="cursor-pointer relative h-64 flex flex-col justify-center bg-black/10 dark:bg-white/10 backdrop-blur-0-md p-6 rounded-2xl shadow-md hover:shadow-lg border border-black/20 dark:border-white/20 hover:border-cyan-400 transition-all duration-300 group"
                 >
                     <div
                         className="flex justify-between items-center mb-4"

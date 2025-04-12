@@ -7,6 +7,8 @@ const Navbar = () => {
     >
         <a href="#hero" className="hover:underline">Home</a>
         <a href="#portfolio" className="hover:underline">Portfolio</a>
+        <a href="#about" className="hover:underline">About</a>
+        <a href="#services" className="hover:underline">Services</a>
         <a href="#contact" className="hover:underline">Contact</a>
     </nav>
   )
