@@ -3,14 +3,25 @@ import { motion } from "framer-motion"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { useBooking } from "../context/BookingContext"
+import { toast } from "sonner"
 
 
 
 const ContactSection = () => {
-    const [form, setForm] = useState<{name: string, email: string, message: string}>({ name: "", email: "", message: "" })
+    const [form, setForm] = useState<{
+        name: string
+        email: string
+        message: string
+        date: Date | null
+    }>({
+        name: "",
+        email: "",
+        message: "",
+        date: null,
+    })
     const [submitted, setSubmitted] = useState<boolean>(false)
-    const [selectedDate, setSelectedDate] = useState<Date | null>(null)
-    const { service } = useBooking()
+    const { service, clearPrefillMessage } = useBooking()
+
 
     useEffect(() => {
         if (service && !form.message) {
@@ -26,10 +37,13 @@ const ContactSection = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         setSubmitted(true)
+        console.log(form)
 
         setTimeout(() => {
-            setForm({ name: "", email: "", message: "" })
+            setForm({ name: "", email: "", message: "", date: null})
             setSubmitted(false)
+            clearPrefillMessage()
+            toast.success("Message sent successfully! 🎉")
         }, 2000)
     }
 
@@ -119,8 +133,8 @@ const ContactSection = () => {
                     Preferred Shoot Date
                 </label>
                     <DatePicker 
-                        selected={selectedDate}
-                        onChange={(date) => setSelectedDate(date)}
+                        selected={form.date}
+                        onChange={(date) => setForm({...form, date})}
                         showTimeSelect
                         timeFormat="HH:mm"
                         timeIntervals={30}
@@ -155,6 +169,16 @@ const ContactSection = () => {
                     </motion.span>)}
             </motion.button>
         </form>
+        {submitted && (
+            <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="text-center text-green-500 mt-4 text-xl font-semibold"
+            >
+                Thanks for reaching out. We'll get back to you shortly. 🙌
+            </motion.p>
+        )}
 
         <p
             className="text-center text-base text-gray-900 dark:text-gray-400 mt-6 italic"

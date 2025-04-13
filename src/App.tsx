@@ -8,10 +8,10 @@ import ContactSection from "./components/ContactSection"
 import Footer from "./components/Footer"
 import { ThemeProvider } from "./context/ThemeContext"
 import { BookingProvider } from "./context/BookingContext"
+import { Toaster } from "sonner"
 
 
 const App = () => {
-
   return (
     <ThemeProvider>
       <BookingProvider>
@@ -27,6 +27,7 @@ const App = () => {
           <TestimonialsSection />
           <ContactSection />
           <Footer />
+          <Toaster position="top-center" />
         </div>
       </BookingProvider>
     </ThemeProvider>
