@@ -34,13 +34,14 @@ const HeroSection = () => {
             >
                 Capturing moments that matter
             </motion.p>
-            <motion.button
+            <motion.a
+                href="#portfolio"
                 className="mt-10 px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
             >
                 Enter Gallery
-            </motion.button>
+            </motion.a>
         </div>
 
     </section>

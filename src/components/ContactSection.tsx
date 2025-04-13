@@ -34,17 +34,42 @@ const ContactSection = () => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setSubmitted(true)
-        console.log(form)
 
-        setTimeout(() => {
-            setForm({ name: "", email: "", message: "", date: null})
+        const formData = {
+            name: form.name.trim(),
+            email: form.email.trim(),
+            message: form.message.trim(),
+            date: form.date?.toISOString() || "",
+        }
+
+        // To enable form submissions, sign up at https://formspree.io or any other form provider
+        // and replace the endpoint below with your own.
+        try {
+            const response = await fetch("https://formspree.io/f/YOUR_FORM_ID",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData)
+            })
+
+            if (response.ok) {
+                setForm({name: "", email: "", message: "", date: null})
+                toast.success("Message sent successfully! 🎉")
+                clearPrefillMessage()
+            } else {
+                toast.error("Something went wrong. Try again.")
+            }
+        } catch (error) {
+            toast.error("Network error. try again later.")
+        } finally {
             setSubmitted(false)
-            clearPrefillMessage()
-            toast.success("Message sent successfully! 🎉")
-        }, 2000)
+        }
     }
 
   return (
