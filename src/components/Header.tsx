@@ -5,9 +5,6 @@ import ThemeToggle from "./ThemeToggle"
 import { motion, AnimatePresence } from "framer-motion"
 
 
-
-
-
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
 

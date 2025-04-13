@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
+import { useBooking } from "../context/BookingContext"
 
 
 
@@ -9,6 +10,14 @@ const ContactSection = () => {
     const [form, setForm] = useState<{name: string, email: string, message: string}>({ name: "", email: "", message: "" })
     const [submitted, setSubmitted] = useState<boolean>(false)
     const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+    const { service } = useBooking()
+
+    useEffect(() => {
+        if (service && !form.message) {
+            setForm(prev => ({...prev, message: service}))
+        }
+    }, [service])
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value })

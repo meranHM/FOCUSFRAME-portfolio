@@ -2,9 +2,18 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { services } from "../constants"
 import { X} from "lucide-react"
+import { useBooking } from "../context/BookingContext"
 
 const ServicesSection = () => {
     const [active, setActive] = useState<null | number>(null)
+    const { setService } = useBooking()
+
+    const handleBookNow = (type: string) => {
+        setService(`Hey! I'm intrested in booking a ${type.toLocaleLowerCase()} photoshoot.`)
+        const element = document.getElementById("contact")
+        element?.scrollIntoView({ behavior: "smooth" })
+        setActive(null)
+    }
 
   return (
     <section
@@ -93,6 +102,7 @@ const ServicesSection = () => {
 
                     <button
                         className="bg-cyan-600 text-white px-5 py-2 rounded-lg hover:bg-cyan-700 transition mt-4"
+                        onClick={() => handleBookNow(services[active].title)}
                     >
                         Book Now
                     </button>

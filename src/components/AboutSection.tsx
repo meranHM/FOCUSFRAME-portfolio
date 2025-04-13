@@ -4,7 +4,6 @@ import Signature from "../assets/signature.webp"
 import { timeline } from "../constants"
 
 
-
 const AboutSection = () => {
 
   return (
