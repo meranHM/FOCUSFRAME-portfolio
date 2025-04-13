@@ -14,6 +14,14 @@ import {
     FaInstagram, 
     FaEnvelope } from "react-icons/fa"
 
+// Navbar Links
+export const navLinks = [
+    { href: "#hero", label: "Home" },
+    { href: "#portfolio", label: "Portfolio" },
+    { href: "#about", label: "About" },
+    { href: "#services", label: "Services" },
+    { href: "#contact", label: "Contact" },
+]
 
 // Captured Photos
 export const photos = [
@@ -120,3 +128,4 @@ export const testimonials = [
     {icon: FaLinkedin, link: "https://linkedin.com"},
     {icon: FaEnvelope, link: "mailto:you@example.com"},
   ]
+
