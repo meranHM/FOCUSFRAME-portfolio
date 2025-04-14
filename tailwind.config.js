@@ -15,14 +15,10 @@ export default {
       },
       colors: {
         darkModeColors: {
-          darkCyan: "#111418",
-          white: "#ffffff",
-          gray10: "#1a1a1a",
-          ivory: "#0f0f0f",
+
         },
         lightModeColors: {
-          whiteSmoke: "#f4f4f4",
-          chineseBlack: "#111111",
+
         }
       },
       animation: {
