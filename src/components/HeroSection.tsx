@@ -1,5 +1,8 @@
 import { motion } from "framer-motion"
 import heroVideo from "../assets/hero-video.webm"
+import heroFallbackVid from "../assets/hero-video.mp4"
+import heroImage from "../assets/hero-image.webp"
+
 
 const HeroSection = () => {
   return (
@@ -8,12 +11,16 @@ const HeroSection = () => {
         id="hero"
     >
         <video
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover z-[-1]"
             autoPlay
             loop
             muted
+            playsInline
+            preload="none"
+            poster={heroImage}
         >
             <source src={heroVideo} type="video/webm"/>
+            <source src={heroFallbackVid} type="video/mp4"/>
         </video>
         <div
             className="absolute inset-0 bg-black/40 backdrop-blur-sm flex flex-col items-center justify-center text-white text-center"
