@@ -90,11 +90,12 @@ Update your name, bio, social links, and contact details in:
 ```src/constants/index.ts```
 
 ### 🖼️ 2. Replace Portfolio Images
-- Add your images to src/assets/
+To replace images:
+- Simply drop your `.webp`, `.jpg`, or `.png` images into `src/assets/images/`
+- The template will automatically import them.
+- Add another object in the photos array and update its data accordingly.
+- You can update titles, descriptions, tags, and EXIF data in `src/constants/portfolioGallery.ts`
 
-- Update the image list in src/constants/images.ts
-
-- Assign tags for filtering functionality
 
 ### 🌐 3. Update SEO Metadata (Optional)
 Edit index.html or use React Helmet for dynamic meta tags.

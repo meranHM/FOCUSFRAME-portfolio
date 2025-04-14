@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { photos } from "../constants"
+import { photos } from "../constants/portfolioGallery"
 import Lightbox from "./Lightbox"
 
 // Adding tags based on photos' available tags
