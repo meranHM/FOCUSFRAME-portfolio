@@ -75,7 +75,7 @@ const PortfolioGrid = () => {
                 <button
                     key={tag}
                     onClick={() => setActiveTag(tag)}
-                    className={`px-4 py-1 rounded-full border ${
+                    className={`px-4 py-1 rounded-full border font-bold ${
                         activeTag === tag
                         ? "bg-black text-white border-black dark:bg-white dark:text-black dark:border-white"
                         : "border-gray-600 text-gray-900 dark:text-gray-300 hover:border-black/30 dark:hover:border-white hover:text-black dark:hover:text-white"
@@ -105,6 +105,9 @@ const PortfolioGrid = () => {
                             src={photo.src}
                             alt={photo.title}
                             className="w-full h-64 object-cover rounded-lg transition-transform group-hover:scale-105"
+                            loading="lazy"
+                            width={1280}
+                            height={720}
                         />
                         <div className="mt-2 text-lg text-center text-gray-900 dark:text-gray-300">{photo.title}</div>
                     </motion.div>

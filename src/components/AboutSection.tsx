@@ -21,6 +21,9 @@ const AboutSection = () => {
                     src={PolaroidImg}
                     alt="Selife"
                     className="w-full h-auto object-cover rounded-md"
+                    width={720}
+                    height={1280}
+                    loading="lazy"
                 />
                 <p 
                     className="text-center text-black mt-2 text-sm italic"
@@ -30,6 +33,9 @@ const AboutSection = () => {
                 {Signature && (
                 <img 
                     src={Signature}
+                    width={1280}
+                    height={720}
+                    loading="lazy"
                     alt="Signature"
                     className="absolute rounded-md bottom-[-2rem] right-[-1rem] w-24 opacity-80"
                 />
