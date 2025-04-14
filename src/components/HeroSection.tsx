@@ -11,7 +11,7 @@ const HeroSection = () => {
         id="hero"
     >
         <video
-            className="absolute inset-0 w-full h-full object-cover z-[-1]"
+            className="absolute inset-0 w-full h-full object-cover"
             autoPlay
             loop
             muted
