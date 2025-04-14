@@ -68,16 +68,39 @@ const Lightbox: React.FC<LightboxProps> = ({ isOpen, photo, onClose, onPrev, onN
                                 src={photo.src}
                                 alt={photo.title}
                                 className="w-full h-[80vh] object-contain"
+                                loading="lazy"
+                                width={1280}
+                                height={720}
                             />
                             <div
                                 className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 text-sm space-y-1"
                             >
                                 <h3 className="text-lg font-semibold">{photo.title}</h3>
-                                <p>{photo.description}</p>
+                                <p
+                                    aria-label="Image caption"
+                                >
+                                    {photo.description}
+                                </p>
                                 <div className="text-xs opacity-80">
                                     Camera: {photo.exif.camera} | Lens: {photo.exif.lens} | ISO: {photo.exif.iso}
                                 </div>
                             </div>
+
+                            <a
+                                href={photo.src}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="absolute bottom-2 right-28 font-bold px-4 py-2 bg-white/80 text-black rounded hover:bg-gray-200 transiiton"
+                            >
+                                View Fullscreen
+                            </a>
+                            <a 
+                                href={photo.src}
+                                download
+                                className="absolute bottom-2 right-0 font-bold px-4 py-2 bg-white/80 text-black rounded hover:bg-gray-200 transiiton"
+                            >
+                                Download
+                            </a>
 
                             {hovered && (
                             <>   

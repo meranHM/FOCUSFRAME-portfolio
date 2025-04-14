@@ -28,7 +28,7 @@ const Header = () => {
         >
           <button
             onClick={toggleMenu}
-            aria-label="Toggle Menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
             className="p-1 rounded-lg backdrop-blur bg-white/10 dark:bg-white/5 hover:bg-white/20"
           >
             {menuOpen ? <X size={28} className="text-white"/> : <Menu size={28} className="text-white"/>}
@@ -38,6 +38,8 @@ const Header = () => {
         {/* Desktop Navbar */}
         <nav
           className="hidden md:flex mx-auto justify-center gap-6 p-4 text-base text-white md:text-lg"
+          role="navigation"
+          aria-label="Main navigation"
         >
           {navLinks.map((link, index) => (
             <motion.a
@@ -47,6 +49,7 @@ const Header = () => {
               transition={{ duration: 0.2, delay: index * 0.2 }}
               href={link.href}
               className="hover:underline"
+              aria-label={`${link.label} link`}
             >
               {link.label}
             </motion.a>
@@ -76,6 +79,8 @@ const Header = () => {
               >
                 <motion.nav
                   className="flex flex-col gap-6 text-lg"
+                  role="navigation"
+                  aria-label="Mobile navigation"
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
@@ -94,6 +99,7 @@ const Header = () => {
                       href={link.href}
                       onClick={toggleMenu}
                       className="hover:underline"
+                      aria-label={`${link.label} link`}
                       variants={{
                         hidden: { opacity: 0, x: 20 },
                         visible: { opacity: 1, x: 0 },

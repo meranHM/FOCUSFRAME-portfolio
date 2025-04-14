@@ -9,6 +9,8 @@ const HeroSection = () => {
     <section
         className="relative w-full min-h-screen overflow-hidden"
         id="hero"
+        role="region"
+        aria-label="Hero section"
     >
         <video
             className="absolute inset-0 w-full h-full object-cover"
@@ -18,6 +20,7 @@ const HeroSection = () => {
             playsInline
             preload="none"
             poster={heroImage}
+            aria-hidden="true"
         >
             <source src={heroVideo} type="video/webm"/>
             <source src={heroFallbackVid} type="video/mp4"/>
@@ -44,6 +47,7 @@ const HeroSection = () => {
             <motion.a
                 href="#portfolio"
                 className="mt-10 px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300"
+                aria-label="Scroll to portfolio gallery section"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
             >

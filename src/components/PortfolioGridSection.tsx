@@ -3,10 +3,11 @@ import { motion } from "framer-motion"
 import { photos } from "../constants"
 import Lightbox from "./Lightbox"
 
+// Adding tags based on photos' available tags
 const tags = Array.from(new Set(photos.flatMap(p => p.tags)))
 
 
-const PortfolioGrid = () => {
+const PortfolioGridSection = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [activeTag, setActiveTag] = useState<string>("All")
@@ -39,6 +40,8 @@ const PortfolioGrid = () => {
     <main 
         className="min-h-screen px-6 py-28"
         id="portfolio"
+        role="region"
+        aria-label="Portfolio gallery"
     >
         <motion.div
             initial="hidden"
@@ -75,7 +78,9 @@ const PortfolioGrid = () => {
                 <button
                     key={tag}
                     onClick={() => setActiveTag(tag)}
-                    className={`px-4 py-1 rounded-full border font-bold ${
+                    aria-pressed={activeTag === tag}
+                    aria-label={`Filter by ${tag}`}
+                    className={`px-4 py-1 rounded-full border font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black dark:focus:ring-white ${
                         activeTag === tag
                         ? "bg-black text-white border-black dark:bg-white dark:text-black dark:border-white"
                         : "border-gray-600 text-gray-900 dark:text-gray-300 hover:border-black/30 dark:hover:border-white hover:text-black dark:hover:text-white"
@@ -103,7 +108,7 @@ const PortfolioGrid = () => {
                     >
                         <img 
                             src={photo.src}
-                            alt={photo.title}
+                            alt={photo.title || "Gallery photo"}
                             className="w-full h-64 object-cover rounded-lg transition-transform group-hover:scale-105"
                             loading="lazy"
                             width={1280}
@@ -112,6 +117,7 @@ const PortfolioGrid = () => {
                         <div className="mt-2 text-lg text-center text-gray-900 dark:text-gray-300">{photo.title}</div>
                     </motion.div>
                 ))}
+
         </motion.div>
         <Lightbox 
             isOpen={isOpen}
@@ -124,4 +130,4 @@ const PortfolioGrid = () => {
   )
 }
 
-export default PortfolioGrid
+export default PortfolioGridSection
