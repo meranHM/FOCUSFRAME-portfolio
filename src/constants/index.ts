@@ -1,18 +1,20 @@
-import firstImage from "../assets/image-1.webp"
-import secondImage from "../assets/image-2.webp"
-import thirdImage from "../assets/image-3.webp"
-import fourthImage from "../assets/image-4.webp"
-import avatar from "../assets/avatar.png"
+import avatar from "../assets/avatars/avatar.png"
 import { 
     CameraIcon,
     UserCircle,
     PackageSearch,
 } from "lucide-react"
-
 import { 
     FaLinkedin, 
     FaInstagram, 
     FaEnvelope } from "react-icons/fa"
+    
+
+// Dynamically importing all images in the /assets/images folder
+const imageModules = import.meta.glob("../assets/images/*.{webp,jpg,png}", {eager: true, import: "default"})
+
+const imageList = Object.values(imageModules)
+
 
 // Navbar Links
 export const navLinks = [
@@ -23,11 +25,13 @@ export const navLinks = [
     { href: "#contact", label: "Contact" },
 ]
 
-// Captured Photos
+
+
+// Portfolio Gallery Photos
 export const photos = [
     {
         id: 1,
-        src: firstImage,
+        src: imageList[0],
         title: "Through the Camera Lens",
         exif: { camera: "Canon R6", lens: "50mm f/1.2", iso: 400 },
         tags: ["Nature", "Forest"],
@@ -35,7 +39,7 @@ export const photos = [
     },
     {
         id: 2,
-        src: secondImage,
+        src: imageList[1],
         title: "Travel Memories",
         exif: { camera: "Canon R6", lens: "50mm f/1.2", iso: 400 },
         tags: ["BW", "Minimal"],
@@ -43,7 +47,7 @@ export const photos = [
     },
     {
         id: 3,
-        src: thirdImage,
+        src: imageList[2],
         title: "Analog Meets Modern",
         exif: { camera: "Canon R6", lens: "50mm f/1.2", iso: 400 },
         tags: ["BW", "Minimal"],
@@ -51,7 +55,7 @@ export const photos = [
     },
     {
         id: 4,
-        src: fourthImage,
+        src: imageList[3],
         title: "Capturing Another Professional",
         exif: { camera: "Canon R6", lens: "50mm f/1.2", iso: 400 },
         tags: ["Portrait", "Nature"],
