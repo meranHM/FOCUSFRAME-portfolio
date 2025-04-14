@@ -10,38 +10,41 @@ const AboutSection = () => {
     <motion.section
         className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-8 py-24"
         id="about"
+        role="region"
+        aria-label="About the artist"
     >
         <div
             className="relative z-10 lg:w-1/2 w-full flex justify-center items-center mb-12 lg:mb-0"
         >
-            <div
-                className="p-4 rounded-lg shadow-lg max-w-xs rotate-[-3deg]"
+            <figure
+                    className="p-4 rounded-lg shadow-lg max-w-xs rotate-[-3deg]"
             >
                 <img 
                     src={PolaroidImg}
-                    alt="Selife"
+                    alt="A selfie of the artist at age 20"
                     className="w-full h-auto object-cover rounded-md"
                     width={720}
                     height={1280}
                     loading="lazy"
                 />
-                <p 
+                <figcaption 
                     className="text-center text-black mt-2 text-sm italic"
                 >
                     Me at 20 📸
-                </p>
+                </figcaption>
+                
                 {Signature && (
-                <img 
-                    src={Signature}
-                    width={1280}
-                    height={720}
-                    loading="lazy"
-                    alt="Signature"
-                    className="absolute rounded-md bottom-[-2rem] right-[-1rem] w-24 opacity-80"
-                />
-            )}
-            </div>
-
+                    <img 
+                        src={Signature}
+                        width={1280}
+                        height={720}
+                        loading="lazy"
+                        alt="Artist's signature"
+                        className="absolute rounded-md bottom-[-2rem] right-[-1rem] w-24 opacity-80"
+                        aria-hidden="true"
+                    />
+                )}
+            </figure>
         </div>
 
         <div
@@ -65,9 +68,16 @@ const AboutSection = () => {
                 fragment of a bigger story — <span className="text-nowrap">mine, yours, ours.</span>
             </motion.p>
 
-            <div
+            <section
                 className="mt-6 border-l border-gray-600 pl-6 space-y-4"
+                aria-labelledby="timeline-heading"
             >
+                <h3
+                    id="timeline-heading"
+                    className="sr-only"
+                >
+                    Timeline of photography journey
+                </h3>
                 {timeline.map((item, index) => (
                     <motion.div
                         key={index}
@@ -78,13 +88,14 @@ const AboutSection = () => {
                     >
                         <span
                             className="absolute -left-6 top-1 w-3 h-3 rounded-full bg-cyan-400"
+                            aria-hidden="true"
                         />
                         <p className="text-base font-bold text-gray-800 dark:text-gray-400">{item.year}</p>
                         <p className="text-base md:text-lg text-black dark:text-white">{item.text}</p>
 
                     </motion.div>
                 ))}
-            </div>
+            </section>
         </div>
     </motion.section>
   )

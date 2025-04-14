@@ -12,17 +12,21 @@ const TestimonialsSection = () => {
         if (!isHovered) {
             intervalRef.current = setInterval(() => {
                 setActiveIndex((prev) => (prev + 1) % testimonials.length)
-            }, 5000)
+            }, 4000)
         }
 
-        return () => clearInterval(intervalRef.current!)
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current)
+        }
     }, [isHovered])
 
 
   return (
     <section
-        className="relative py-20 px-6 sm:px-12 md:px-20 bg-transparent"
+        className="relative py-24 px-6 sm:px-12 md:px-20 bg-transparent"
         id="testimonials"
+        role="region"
+        aria-label="Customer testimonials"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
     >
@@ -49,16 +53,19 @@ const TestimonialsSection = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         className="min-w-full px-4"
+                        role="group"
+                        aria-roledescription="slide"
+                        aria-label={`Testimonial from ${test.name}`}
                     >
-                        <div
+                        <figure
                             className="bg-black/10 dark:bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg max-w-xl mx-auto relative border border-black/20 dark:border-white/20"
                         >
-                            <div
+                            <figcaption
                                 className="flex items-center mb-4"
                             >
                                 <img 
                                     src={test.avatar} 
-                                    alt={test.name}
+                                    alt={`Portrait of ${test.name}`}
                                     className="w-10 h-10 rounded-full object-cover mr-4 border border-black dark:border-white"
                                 />
                                 <p 
@@ -66,24 +73,33 @@ const TestimonialsSection = () => {
                                 >
                                     {test.name}
                                 </p>
-                            </div>
-                            <p
-                                className="text-base font-semibold leading-relaxed"
-                            >
-                                “{test.quote}”
-                            </p>
-                        </div>
+                            </figcaption>
+                            <blockquote>
+                                <p
+                                    className="text-base font-semibold leading-relaxed"
+                                >
+                                    “{test.quote}”
+                                </p>
+                            </blockquote>
+                        </figure>
                     </motion.div>
                 ))}
             </div>
 
+            {/* Carousel Dots */}    
             <div
-                className="flex justify-center gap-2 mt-6"
+                className="flex justify-center gap-2 mt-6 py-4"
+                role="tablist"
+                aria-label="Testimonials carousel navigation"
             >
                 {testimonials.map((_, index) => (
-                    <div
+                    <button
                         key={index}
+                        onClick={() => setActiveIndex(index)}
                         className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${ index === activeIndex ? "bg-cyan-400" : "bg-gray-500/30" }`}
+                        aria-label={`Show testimonial ${index + 1}`}
+                        aria-selected={index === activeIndex}
+                        role="tab"
                     />
                 ))}
             </div>

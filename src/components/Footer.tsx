@@ -20,13 +20,16 @@ const Footer = () => {
             >
                 {footerIcons.map((item, index) => (
                     <motion.a
+                        rel="noopener noreferrer"
                         key={index}
                         href={item.link}
                         target="_blank"
-                        className="hover:text-cyan-400 transition"
+                        className="hover:text-cyan-400 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
+                        whileHover={{ scale: 1.2 }}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.2, delay: index * 0.2 }}
+                        aria-label={`Link to ${item.name || "social"} profile`}
                     >
                         <item.icon className="w-5 h-5"/>
                     </motion.a>
@@ -35,6 +38,7 @@ const Footer = () => {
 
             <button
                 onClick={scrollToTop}
+                aria-label="Scroll back to top"
                 className="text-slate-900 dark:text-slate-400 hover:text-cyan-400 dark:hover:text-cyan-200 transition"
             >
                 Back to Top ↑

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { motion } from "framer-motion"
 import { services } from "../constants"
 import { X} from "lucide-react"
@@ -6,8 +6,10 @@ import { useBooking } from "../context/BookingContext"
 
 const ServicesSection = () => {
     const [active, setActive] = useState<null | number>(null)
+    const modalRef = useRef<HTMLDivElement>(null)
     const { setService } = useBooking()
 
+    // Book Now Button functionality
     const handleBookNow = (type: string) => {
         setService(`Hey! I'm intrested in booking a ${type.toLocaleLowerCase()} photoshoot.`)
         const element = document.getElementById("contact")
@@ -15,12 +17,38 @@ const ServicesSection = () => {
         setActive(null)
     }
 
+    // Escape key to close modals
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") {
+                setActive(null)
+            }
+        }
+
+        if (active !== null) {
+            window.addEventListener("keydown", handleKeyDown)
+        }
+
+        return () => window.removeEventListener("keydown", handleKeyDown)
+    }, [active])
+
+    // Focus trap on open modals
+    useEffect(() => {
+        if (active !== null && modalRef.current) {
+            const focusable = modalRef.current.querySelector("button")
+            ;(focusable as HTMLElement)?.focus()
+        }
+    }, [active])
+
   return (
     <section
         className="py-24 px-6 mb-10 lg:px-20 relative z-10"
         id="services"
+        role="region"
+        aria-labelledby="services-heading"
     >
         <motion.h2
+            id="services-heading"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -39,7 +67,11 @@ const ServicesSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.2 }}
                     onClick={() => setActive(index)}
-                    className="cursor-pointer relative h-64 flex flex-col justify-center bg-black/10 dark:bg-white/10 backdrop-blur-0-md p-6 rounded-2xl shadow-md hover:shadow-lg border border-black/20 dark:border-white/20 hover:border-cyan-400 transition-all duration-300 group"
+                    onKeyDown={(e) => e.key === "Enter" && setActive(index)}
+                    tabIndex={0}
+                    className="cursor-pointer relative h-64 flex flex-col justify-center bg-black/10 dark:bg-white/10 backdrop-blur-0-md p-6 rounded-2xl shadow-md hover:shadow-lg border border-black/20 dark:border-white/20 hover:border-cyan-400 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
+                    role="button"
+                    aria-label={`Learn more about ${service.title} service for ${service.price}`}
                 >
                     <div
                         className="flex justify-between items-center mb-4"
@@ -74,17 +106,23 @@ const ServicesSection = () => {
         {active !== null && (
             <div
                 className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="modal-title"
+                aria-describedby="modal-description"
                 onClick={() => setActive(null)}
             >
                 <motion.div
+                    ref={modalRef}
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                     onClick={(e) => e.stopPropagation()}
-                    className="bg-darkModeColors-gray10 text-white rounded-xl p-8 max-w-md w-full shadow-xl relative"
+                    className="relative bg-darkModeColors-gray10 text-white rounded-xl p-8 max-w-md w-full shadow-xl "
                 >
                     <h3
+                        id="modal-title"
                         className="text-2xl font-bold mb-2"
                     >
                         {services[active].title}
@@ -96,6 +134,7 @@ const ServicesSection = () => {
                     </p>
                     <p
                         className="text-gray-200 md:text-lg tracking"
+                        id="modal-description"
                     >
                         {services[active].details}
                     </p>
@@ -110,8 +149,9 @@ const ServicesSection = () => {
                     <button
                         className="absolute top-3 right-4 text-gray-400 hover:text-white text-xl"
                         onClick={() => setActive(null)}
+                        aria-label="Close modal"
                     >
-                        <X />
+                        <X aria-hidden="true"/>
                     </button>
                 </motion.div>
             </div>

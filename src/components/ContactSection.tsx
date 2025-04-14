@@ -21,6 +21,38 @@ const ContactSection = () => {
     })
     const [submitted, setSubmitted] = useState<boolean>(false)
     const { service, clearPrefillMessage } = useBooking()
+    const [errors, setErrors] = useState<{
+        name?: string
+        email?: string
+        message?: string
+        date?: string
+    }>({})
+
+
+    // Form Validation
+    const validate = () => {
+        const newErrors: typeof errors = {}
+
+        if (form.name.trim().length < 2) {
+            newErrors.name = "Name must be at least 2 characters"
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(form.email.trim())) {
+            newErrors.email = "Enter a valid email address"
+        }
+
+        if (form.message.trim().length === 0) {
+            newErrors.message = "Message is required"
+        }
+
+        if (form.date && form.date < new Date()) {
+            newErrors.date = "Date must be in the future"
+        }
+
+        setErrors(newErrors)
+        return Object.keys(newErrors).length === 0
+    }
 
 
     useEffect(() => {
@@ -38,6 +70,18 @@ const ContactSection = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
+        
+        if (!validate()) {
+            return
+        }
+
+        // Detecting bots
+        const honeypot = (e.target as HTMLFormElement)["_gotcha"].value
+        if (honeypot) {
+            setSubmitted(false)
+            return
+        }
+
         setSubmitted(true)
 
         const formData = {
@@ -76,6 +120,8 @@ const ContactSection = () => {
     <section
         className="py-20 px-6 sm:px-12 md:px-24 relative"
         id="contact"
+        role="region"
+        aria-label="Contact form"
     >
         <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -94,12 +140,14 @@ const ContactSection = () => {
                 className="relative"
             >
                 <input 
+                    id="name"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
                     required
                     className="peer w-full bg-transparent border-b border-gray-900 dark:border-gray-400 py-2 px-2 focus:outline-none focus:border-cyan-400 placeholder-transparent"
                     placeholder="Name"
+                    autoComplete="name"
                 />
                 <label
                     htmlFor="name"
@@ -113,6 +161,7 @@ const ContactSection = () => {
                 className="relative"
             >
                 <input 
+                    id="email"
                     name="email"
                     type="email"
                     value={form.email}
@@ -120,6 +169,7 @@ const ContactSection = () => {
                     required
                     className="peer w-full bg-transparent border-b border-gray-900 dark:border-gray-400 py-2 px-2 focus:outline-none focus:border-cyan-400 placeholder-transparent"
                     placeholder="Email"
+                    autoComplete="email"
                 />
                 <label 
                     htmlFor="email"
@@ -133,6 +183,7 @@ const ContactSection = () => {
                 className="relative"
             >
                 <textarea 
+                    id="message"
                     name="message"
                     value={form.message}
                     onChange={handleChange}
@@ -160,6 +211,7 @@ const ContactSection = () => {
                     <DatePicker 
                         selected={form.date}
                         onChange={(date) => setForm({...form, date})}
+                        onKeyDown={(e) => e.preventDefault()}
                         showTimeSelect
                         timeFormat="HH:mm"
                         timeIntervals={30}
@@ -171,9 +223,12 @@ const ContactSection = () => {
                     />
             </div>
 
+            <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off"/>
+
             <motion.button
                 type="submit"
                 whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03 }}
                 disabled={submitted}
                 className="relative overflow-hidden bg-cyan-500 text-white px-6 py-2 rounded-md text-lg shadow-md hover:bg-cyan-600 transition-colors"
             >
