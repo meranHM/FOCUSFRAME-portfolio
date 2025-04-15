@@ -34,7 +34,7 @@ Whether you're showcasing your photography, web projects, or case studies, Focus
 
 ## 🛠️ Tech Stack
 
-- **Framework:** React 18, TypeScript
+- **Framework:** React 19, TypeScript
 - **Styling:** Tailwind CSS
 - **Animation:** Framer Motion
 - **Form Handling:** Native HTML + Custom Error States

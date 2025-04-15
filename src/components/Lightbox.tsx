@@ -50,7 +50,7 @@ const Lightbox: React.FC<LightboxProps> = ({ isOpen, photo, onClose, onPrev, onN
         >
             <div className="fixed inset-0 bg-black/80 backdrop-blur-sm"/>
             <div className="fixed inset-0 flex items-center justify-center p-4">
-                <Dialog.Panel
+                <div
                     className="w-full max-w-5xl mx-auto"
                 >
                     <AnimatePresence>
@@ -119,7 +119,7 @@ const Lightbox: React.FC<LightboxProps> = ({ isOpen, photo, onClose, onPrev, onN
                             </> )}
                         </motion.div>
                     </AnimatePresence>
-                </Dialog.Panel>
+                </div>
             </div>
         </Dialog>
     </Transition>
