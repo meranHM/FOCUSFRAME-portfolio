@@ -13,14 +13,6 @@ export default {
         cormorant: "var(--font-cormorant)",
         playFair: "var(--font-playfair)"
       },
-      colors: {
-        darkModeColors: {
-
-        },
-        lightModeColors: {
-
-        }
-      },
       animation: {
         stamp: "stamp 0.6s ease-out forwards" 
       },

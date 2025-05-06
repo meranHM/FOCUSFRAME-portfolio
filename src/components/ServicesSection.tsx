@@ -119,7 +119,7 @@ const ServicesSection = () => {
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                     onClick={(e) => e.stopPropagation()}
-                    className="relative bg-darkModeColors-gray10 text-white rounded-xl p-8 max-w-md w-full shadow-xl "
+                    className="relative bg-black text-white rounded-xl p-8 max-w-md w-full shadow-xl "
                 >
                     <h3
                         id="modal-title"
