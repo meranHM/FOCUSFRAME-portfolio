@@ -28,7 +28,7 @@ Whether you're showcasing your photography, web projects, or case studies, Focus
 
 ## 🖼 Preview
 
-![FocusFrame Preview](https://your-preview-image-url.com)
+![FocusFrame Preview](/src//assets/focusframe-thumbnail.webp)
 
 ---
 
